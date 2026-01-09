@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wandex Insights Consult</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h1>Wandex Insights Consult</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#training">Training</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Research • Data Analysis • Training</h2>
+        <p>Empowering individuals and organizations with data-driven solutions.</p>
+        <button onclick="scrollToContact()">Get in Touch</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Wandex Insights Consult is a professional consultancy firm specializing in
+            research, data analysis, academic writing, and programming training.
+            We support students, researchers, NGOs, and businesses with high-quality,
+            evidence-based solutions.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Research Proposals & Dissertations</li>
+            <li>Business Proposals & Reports</li>
+            <li>Data Analysis (SPSS, STATA, R, Python, SQL)</li>
+            <li>Monitoring & Evaluation (M&E)</li>
+            <li>Survey Design & Data Collection</li>
+        </ul>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training">
+        <h2>Training Programs</h2>
+        <ul>
+            <li>Programming in C (Beginner to Intermediate)</li>
+            <li>Python for Data Analysis</li>
+            <li>SPSS & STATA for Research</li>
+            <li>SQL for Data Management</li>
+            <li>Research Methods & Statistics</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form onsubmit="sendMessage(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="successMessage"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Wandex Insights Consult. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
