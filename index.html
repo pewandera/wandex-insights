@@ -25,7 +25,6 @@
       background: linear-gradient(135deg, #0b2a4a 0%, #1a3a5a 100%);
       color: white;
       padding: 0.3rem 2rem;
-      /* Reduced header padding */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
@@ -43,15 +42,15 @@
     }
 
     .logo-area {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
       padding: 2px 6px 2px 4px;
-      /* MINIMAL padding - just a thin white border */
       border-radius: 6px;
-      /* Small radius for clean look */
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
+      /* CROP THE EMPTY SPACE AROUND LOGO */
+      line-height: 0;
     }
 
     .logo-area:hover {
@@ -59,15 +58,17 @@
       transform: translateY(-1px);
     }
 
-    /* YOUR LOGO IMAGE - NOW MUCH BIGGER */
+    /* CROPPED LOGO - removes empty space */
     .logo-img {
       height: 120px;
-      /* Bigger logo! */
       width: auto;
       object-fit: contain;
       display: block;
-      max-width: 400px;
-      border-radius: 4px;
+      /* CROP - removes empty space from the image */
+      clip-path: inset(0% 20% 0% 20%);
+      /* Adjust these percentages to crop */
+      margin: -20px 0;
+      /* Pulls the logo closer */
     }
 
     nav {
@@ -415,7 +416,6 @@
       }
       .logo-area {
         padding: 1px 4px 1px 2px;
-        /* Even tighter on tablet */
       }
       nav {
         gap: 1rem;
@@ -432,7 +432,8 @@
       }
       .logo-img {
         height: 90px;
-        /* Slightly smaller on tablets but still big */
+        clip-path: inset(0% 15% 0% 15%);
+        /* Less crop on tablet */
       }
     }
 
@@ -445,11 +446,11 @@
       }
       .logo-area {
         padding: 1px 3px 1px 2px;
-        /* Minimum padding on mobile */
       }
       .logo-img {
         height: 70px;
-        /* Smaller on mobile but still prominent */
+        clip-path: inset(0% 10% 0% 10%);
+        /* Even less crop on mobile */
       }
       header {
         padding: 0.2rem 1rem;
@@ -459,15 +460,14 @@
 </head>
 <body>
 
-  <!-- ===== HEADER WITH YOUR LOGO ===== -->
+  <!-- ===== HEADER WITH CROPPED LOGO ===== -->
   <header>
     <div class="container">
       <div class="logo-area">
         <!-- ============================================== -->
-        <!-- YOUR LOGO - image.png from your repository     -->
+        <!-- YOUR LOGO - Cropped to remove empty space      -->
         <!-- ============================================== -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
-        <!-- "WandexInsights" text REMOVED -->
       </div>
       <nav>
         <a href="#about">About</a>
