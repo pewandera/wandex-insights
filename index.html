@@ -1,139 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wandex Insights Consult</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wandex Insights Consult</title>
+  <!-- Font Awesome 5 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
 
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    body {
+      background: #f0f4fa;
+      color: #1e2b3a;
+      line-height: 1.6;
+    }
+
+    /* ----- header / navbar ----- */
+    header {
+      background: #0b2a4a;
+      color: white;
+      padding: 0.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      background: #ff9800;
+      color: #0b2a4a;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span {
+      color: #ffb347;
+      font-weight: 300;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #f0f4fa;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover {
+      border-bottom-color: #ff9800;
+      color: #ffb347;
+    }
+
+    /* ----- hero ----- */
+    .hero {
+      background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-bottom: 6px solid #ff9800;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .hero h2 i {
+      color: #ff9800;
+      margin: 0 0.25rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 1rem auto 1.8rem;
+      opacity: 0.9;
+    }
+
+    .hero .btn-primary {
+      background: #ff9800;
+      color: #0b2a4a;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(255, 152, 0, 0.4);
+      transition: 0.2s;
+    }
+
+    .hero .btn-primary:hover {
+      background: #ffb347;
+      transform: scale(1.02);
+      box-shadow: 0 10px 24px rgba(255, 152, 0, 0.6);
+    }
+
+    /* ----- sections common ----- */
+    section {
+      max-width: 1280px;
+      margin: 2.5rem auto;
+      padding: 2rem 2.5rem;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #0b2a4a;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h2 i {
+      color: #ff9800;
+      font-size: 2rem;
+    }
+
+    .section-sub {
+      color: #3a5a7a;
+      font-size: 1.1rem;
+      margin-top: -0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* about */
+    #about p {
+      font-size: 1.15rem;
+      max-width: 800px;
+      background: #f7faff;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      border-left: 8px solid #ff9800;
+    }
+
+    /* services & training cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .service-card, .training-card {
+      background: #f8fbfe;
+      padding: 1.8rem 1.2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: 0.25s ease;
+      border: 1px solid #e9edf4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .service-card:hover, .training-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff9800;
+      box-shadow: 0 12px 28px rgba(255, 152, 0, 0.15);
+      background: white;
+    }
+
+    .service-card i, .training-card i {
+      font-size: 2.8rem;
+      color: #0b2a4a;
+      background: #ffd699;
+      padding: 0.7rem;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card h3, .training-card h3 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b2a4a;
+    }
+
+    .service-card p, .training-card p {
+      font-size: 0.9rem;
+      color: #3a5a7a;
+    }
+
+    /* contact */
+    #contact .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-info {
+      flex: 1 1 240px;
+    }
+
+    .contact-info p {
+      margin: 0.7rem 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .contact-info i {
+      width: 28px;
+      color: #ff9800;
+      font-size: 1.3rem;
+    }
+
+    .contact-form {
+      flex: 2 1 320px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #dde3ec;
+      border-radius: 40px;
+      font-size: 1rem;
+      background: #fafcff;
+      transition: 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #ff9800;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 152, 0, 0.15);
+    }
+
+    .contact-form textarea {
+      border-radius: 24px;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #0b2a4a;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-form button:hover {
+      background: #ff9800;
+      color: #0b2a4a;
+      box-shadow: 0 8px 18px rgba(255, 152, 0, 0.3);
+    }
+
+    #successMessage {
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #1f8b4c;
+    }
+
+    /* footer */
+    footer {
+      background: #0b2a4a;
+      color: #b6cbd9;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      border-top: 4px solid #ff9800;
+    }
+
+    footer i {
+      color: #ff9800;
+      margin: 0 0.3rem;
+    }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 1.5rem;
+        margin: 1.2rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      .hero h2 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
+<!-- header with logo -->
 <header>
-    <div class="container">
-        <h1>Wandex Insights Consult</h1>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#training">Training</a>
-            <a href="#contact">Contact</a>
-        </nav>
+  <div class="container">
+    <div class="logo-area">
+      <div class="logo-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="logo-text">Wandex<span>Insights</span></div>
     </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#training">Training</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-
-    <h2>Research • Data Analysis • Training</h2>
-
-    <p>
-        Empowering students, researchers, NGOs and businesses
-        through professional research and statistical consulting.
-    </p>
-
-    <button onclick="scrollToContact()">
-        Contact Us
-    </button>
-
+  <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
+  <p>
+    Empowering students, researchers, NGOs, and businesses through professional
+    research, statistical consulting &amp; capacity building.
+  </p>
+  <button class="btn-primary" onclick="scrollToContact()">
+    <i class="fas fa-envelope"></i> Get in Touch
+  </button>
 </section>
 
+<!-- About -->
 <section id="about">
-
-    <h2>About Us</h2>
-
-    <p>
-
-        Wandex Insights Consult provides professional services in
-        research, monitoring and evaluation, statistical analysis,
-        academic writing, programming and capacity building.
-
-    </p>
-
+  <h2><i class="fas fa-users"></i> About Us</h2>
+  <p>
+    <i class="fas fa-quote-left" style="color:#ff9800; margin-right:8px;"></i>
+    Wandex Insights Consult provides professional services in research,
+    monitoring &amp; evaluation, statistical analysis, academic writing,
+    programming, and capacity building. We turn data into decisions with
+    expertise you can trust.
+  </p>
 </section>
 
+<!-- Services with icons (image-inspired) -->
 <section id="services">
-
-    <h2>Our Services</h2>
-
-    <ul>
-
-        <li>Research Proposal Development</li>
-
-        <li>Dissertation Support</li>
-
-        <li>Statistical Data Analysis</li>
-
-        <li>Monitoring & Evaluation</li>
-
-        <li>Survey Design</li>
-
-        <li>Business Proposal Writing</li>
-
-        <li>Data Visualization</li>
-
-        <li>Training in R, SPSS, STATA, Python and SQL</li>
-
-    </ul>
-
+  <h2><i class="fas fa-cogs"></i> Our Services</h2>
+  <div class="section-sub">Research · Data · Consulting</div>
+  <div class="card-grid">
+    <div class="service-card"><i class="fas fa-file-alt"></i><h3>Proposal Dev.</h3><p>Research &amp; business proposals</p></div>
+    <div class="service-card"><i class="fas fa-book-open"></i><h3>Dissertation</h3><p>Full academic writing support</p></div>
+    <div class="service-card"><i class="fas fa-chart-bar"></i><h3>Data Analysis</h3><p>SPSS, STATA, Python, R, SQL</p></div>
+    <div class="service-card"><i class="fas fa-tasks"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
+    <div class="service-card"><i class="fas fa-pencil-alt"></i><h3>Survey Design</h3><p>Questionnaires &amp; sampling</p></div>
+    <div class="service-card"><i class="fas fa-chart-pie"></i><h3>Visualization</h3><p>Dashboards &amp; infographics</p></div>
+    <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>R, SPSS, STATA, Python, SQL</p></div>
+    <div class="service-card"><i class="fas fa-bullseye"></i><h3>Business Writing</h3><p>Proposals &amp; reports</p></div>
+  </div>
 </section>
 
+<!-- Training -->
 <section id="training">
-
-    <h2>Training Programs</h2>
-
-    <ul>
-
-        <li>Programming in C</li>
-
-        <li>Python Programming</li>
-
-        <li>SPSS</li>
-
-        <li>STATA</li>
-
-        <li>R Programming</li>
-
-        <li>SQL</li>
-
-        <li>Research Methods</li>
-
-        <li>Monitoring & Evaluation</li>
-
-    </ul>
-
+  <h2><i class="fas fa-code"></i> Training Programs</h2>
+  <div class="section-sub">For individuals &amp; organizations</div>
+  <div class="card-grid">
+    <div class="training-card"><i class="fas fa-code"></i><h3>C++ / C</h3><p>Programming fundamentals</p></div>
+    <div class="training-card"><i class="fab fa-python"></i><h3>Python</h3><p>Data science &amp; automation</p></div>
+    <div class="training-card"><i class="fas fa-chart-line"></i><h3>SPSS</h3><p>Statistical analysis</p></div>
+    <div class="training-card"><i class="fas fa-chart-simple"></i><h3>STATA</h3><p>Econometrics &amp; data</p></div>
+    <div class="training-card"><i class="fas fa-dice-d6"></i><h3>R Programming</h3><p>Data visualization</p></div>
+    <div class="training-card"><i class="fas fa-database"></i><h3>SQL</h3><p>Database querying</p></div>
+    <div class="training-card"><i class="fas fa-flask"></i><h3>Research Methods</h3><p>Design &amp; methodology</p></div>
+    <div class="training-card"><i class="fas fa-clipboard-check"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
+  </div>
 </section>
 
+<!-- Contact with improved info -->
 <section id="contact">
+  <h2><i class="fas fa-address-card"></i> Contact Us</h2>
+  <div class="contact-row">
+    <div class="contact-info">
+      <p><i class="fas fa-phone-alt"></i> +256 784 925 195</p>
+      <p><i class="fas fa-phone-alt"></i> +256 703 873 932</p>
+      <p><i class="fas fa-envelope"></i> paulwandera2016@gmail.com</p>
+      <p><i class="fas fa-envelope"></i> insights.consult@gmail.com</p>
+      <p><i class="fas fa-globe"></i> www.wandexconsult.com</p>
+      <p style="margin-top:1rem; background:#f0f4fa; padding:0.8rem 1.2rem; border-radius:40px;">
+        <i class="fas fa-badge-check" style="color:#ff9800;"></i> 
+        <strong>Professional · Dependable · Results-driven</strong>
+      </p>
+    </div>
 
-    <h2>Contact Us</h2>
-
-    <form onsubmit="sendMessage(event)">
-
-        <input type="text" placeholder="Your Name" required>
-
-        <input type="email" placeholder="Your Email" required>
-
-        <textarea placeholder="Your Message" required></textarea>
-
-        <button type="submit">
-            Send Message
-        </button>
-
-    </form>
-
-    <p id="successMessage"></p>
-
+    <div class="contact-form">
+      <form onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Your Full Name" required />
+        <input type="email" placeholder="Your Email Address" required />
+        <textarea placeholder="Your Message …" required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+      <p id="successMessage"></p>
+    </div>
+  </div>
 </section>
 
+<!-- footer -->
 <footer>
-
-    © 2026 Wandex Insights Consult. All Rights Reserved.
-
+  <i class="fas fa-chart-line"></i> 
+  © 2026 Wandex Insights Consult. All Rights Reserved. 
+  <i class="fas fa-chart-line"></i>
 </footer>
 
-</body>
+<script>
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
 
+  function sendMessage(event) {
+    event.preventDefault();
+    const msgEl = document.getElementById('successMessage');
+    msgEl.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We’ll get back to you shortly.';
+    msgEl.style.color = '#1f8b4c';
+    // optionally reset form
+    event.target.reset();
+    // reset message after 6 sec
+    setTimeout(() => {
+      msgEl.innerHTML = '';
+    }, 6000);
+  }
+</script>
+
+</body>
 </html>
