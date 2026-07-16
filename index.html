@@ -57,15 +57,7 @@
       width: auto;
       object-fit: contain;
       display: block;
-    }
-
-    /* If your logo is on a white background but has transparent parts */
-    .logo-wrapper {
-      background: white;
-      padding: 0.2rem 0.4rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
+      max-width: 150px;
     }
 
     .logo-text {
@@ -405,19 +397,16 @@
     <div class="container">
       <div class="logo-area">
         <!-- ============================================== -->
-        <!-- YOUR LOGO - Just save as 'image.png', 'image.jpg', or 'image.jpeg' -->
-        <!-- The white background ensures your logo is ALWAYS visible -->
+        <!-- YOUR LOGO - Just save as 'image' with any extension -->
+        <!-- The code will try multiple extensions automatically -->
         <!-- ============================================== -->
-        <div class="logo-wrapper">
-          <picture>
-            <!-- Try different extensions automatically -->
-            <source srcset="image.webp" type="image/webp">
-            <source srcset="image.png" type="image/png">
-            <source srcset="image.jpg" type="image/jpeg">
-            <img src="image.png" alt="Wandex Insights Consult" class="logo-img"
-            onerror="this.style.display='none'; this.parentElement.parentElement.parentElement.querySelector('.logo-fallback').style.display='flex';" />
-          </picture>
-        </div>
+        <img src="image" alt="Wandex Insights Consult" class="logo-img"
+        onerror="this.onerror=null; this.src='image.png';"
+        onerror="this.onerror=null; this.src='image.jpg';"
+        onerror="this.onerror=null; this.src='image.jpeg';"
+        onerror="this.onerror=null; this.src='image.webp';"
+        onerror="this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='flex';" />
+
         <!-- Fallback icon if logo image doesn't load -->
         <div class="logo-fallback" style="display:none; background:#ff9800; color:#0b2a4a; width:40px; height:40px; border-radius:50%; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; box-shadow:0 2px 8px rgba(255,152,0,0.3);">
           <i class="fas fa-chart-line"></i>
@@ -618,6 +607,36 @@
     // DOM ready
     document.addEventListener('DOMContentLoaded', function() {
       console.log('Wandex Insights Consult — ready.');
+      
+      // Try to load the logo with different extensions
+      const logoImg = document.querySelector('.logo-img');
+      if (logoImg) {
+        const extensions = ['', '.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
+        let currentSrc = logoImg.src;
+        
+        // If the current src doesn't load, try extensions
+        logoImg.onerror = function() {
+          let currentSrc = this.src;
+          // Try adding extensions
+          if (!currentSrc.includes('.')) {
+            const extensions = ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
+            for (let ext of extensions) {
+              this.src = currentSrc + ext;
+              // If this works, break the loop
+              this.onerror = function() {
+                // Continue to next extension
+              };
+            }
+          } else {
+            // If it has an extension but still fails, show fallback
+            this.style.display = 'none';
+            const fallback = this.parentElement.querySelector('.logo-fallback');
+            if (fallback) {
+              fallback.style.display = 'flex';
+            }
+          }
+        };
+      }
     });
   </script>
 
