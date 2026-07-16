@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wandex Insights Consult</title>
-  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -20,7 +19,6 @@
       line-height: 1.6;
     }
 
-    /* header / navbar */
     header {
       background: linear-gradient(135deg, #0b2a4a 0%, #1a3a5a 100%);
       color: white;
@@ -41,15 +39,15 @@
       flex-wrap: wrap;
     }
 
+    /* LOGO AREA - white background with TIGHT padding */
     .logo-area {
       display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 2px 6px 2px 4px;
-      border-radius: 6px;
+      padding: 0px 4px 0px 4px;   /* Almost no padding */
+      border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
-      /* CROP THE EMPTY SPACE AROUND LOGO */
       line-height: 0;
     }
 
@@ -58,19 +56,19 @@
       transform: translateY(-1px);
     }
 
-    /* CROPPED LOGO - removes empty space */
+    /* LOGO IMAGE - CROPPED to remove empty space */
     .logo-img {
-      height: 120px;
+      height: 120px;          /* Adjust as needed */
       width: auto;
       object-fit: contain;
       display: block;
-      /* CROP - removes empty space from the image */
-      clip-path: inset(0% 20% 0% 20%);
-      /* Adjust these percentages to crop */
-      margin: -20px 0;
-      /* Pulls the logo closer */
+      /* CROP the empty space around the logo */
+      clip-path: inset(0% 30% 0% 30%);
+      /* 30% from left and right - adjust these percentages */
+      margin: 0;              /* No extra margin */
     }
 
+    /* Navigation */
     nav {
       display: flex;
       gap: 1.8rem;
@@ -107,7 +105,7 @@
       color: #ffb347;
     }
 
-    /* hero */
+    /* Hero section */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
@@ -176,7 +174,7 @@
       box-shadow: 0 10px 24px rgba(255, 152, 0, 0.6);
     }
 
-    /* sections */
+    /* Sections */
     section {
       max-width: 1280px;
       margin: 2.5rem auto;
@@ -227,7 +225,7 @@
       box-shadow: 0 4px 12px rgba(255, 152, 0, 0.1);
     }
 
-    /* cards */
+    /* Cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -294,7 +292,7 @@
       color: #3a5a7a;
     }
 
-    /* contact */
+    /* Contact */
     #contact .contact-row {
       display: flex;
       flex-wrap: wrap;
@@ -391,7 +389,6 @@
       color: #1f8b4c;
     }
 
-    /* footer */
     footer {
       background: #0b2a4a;
       color: #b6cbd9;
@@ -407,7 +404,7 @@
       margin: 0 0.3rem;
     }
 
-    /* responsive */
+    /* Responsive */
     @media (max-width: 720px) {
       header .container {
         flex-direction: column;
@@ -415,7 +412,7 @@
         gap: 0.8rem;
       }
       .logo-area {
-        padding: 1px 4px 1px 2px;
+        padding: 0px 3px;
       }
       nav {
         gap: 1rem;
@@ -432,8 +429,7 @@
       }
       .logo-img {
         height: 90px;
-        clip-path: inset(0% 15% 0% 15%);
-        /* Less crop on tablet */
+        clip-path: inset(0% 25% 0% 25%);
       }
     }
 
@@ -445,12 +441,11 @@
         font-size: 1.7rem;
       }
       .logo-area {
-        padding: 1px 3px 1px 2px;
+        padding: 0px 2px;
       }
       .logo-img {
         height: 70px;
-        clip-path: inset(0% 10% 0% 10%);
-        /* Even less crop on mobile */
+        clip-path: inset(0% 20% 0% 20%);
       }
       header {
         padding: 0.2rem 1rem;
@@ -460,13 +455,11 @@
 </head>
 <body>
 
-  <!-- ===== HEADER WITH CROPPED LOGO ===== -->
+  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="logo-area">
-        <!-- ============================================== -->
-        <!-- YOUR LOGO - Cropped to remove empty space      -->
-        <!-- ============================================== -->
+        <!-- YOUR LOGO IMAGE - cropped to remove empty space -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
       </div>
       <nav>
@@ -478,7 +471,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="hero">
     <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
     <p>
@@ -490,7 +483,7 @@
     </button>
   </section>
 
-  <!-- ===== ABOUT ===== -->
+  <!-- ABOUT -->
   <section id="about">
     <h2><i class="fas fa-users"></i> About Us</h2>
     <p>
@@ -502,87 +495,39 @@
     </p>
   </section>
 
-  <!-- ===== SERVICES ===== -->
+  <!-- SERVICES -->
   <section id="services">
     <h2><i class="fas fa-cogs"></i> Our Services</h2>
     <div class="section-sub">Research · Data · Consulting</div>
     <div class="card-grid">
-      <div class="service-card"><i class="fas fa-file-alt"></i>
-        <h3>Proposal Dev.</h3>
-        <p>Research &amp; business proposals</p>
-      </div>
-      <div class="service-card"><i class="fas fa-book-open"></i>
-        <h3>Dissertation</h3>
-        <p>Full academic writing support</p>
-      </div>
-      <div class="service-card"><i class="fas fa-chart-bar"></i>
-        <h3>Data Analysis</h3>
-        <p>SPSS, STATA, Python, R, SQL</p>
-      </div>
-      <div class="service-card"><i class="fas fa-tasks"></i>
-        <h3>M&amp;E</h3>
-        <p>Monitoring &amp; evaluation</p>
-      </div>
-      <div class="service-card"><i class="fas fa-pencil-alt"></i>
-        <h3>Survey Design</h3>
-        <p>Questionnaires &amp; sampling</p>
-      </div>
-      <div class="service-card"><i class="fas fa-chart-pie"></i>
-        <h3>Visualization</h3>
-        <p>Dashboards &amp; infographics</p>
-      </div>
-      <div class="service-card"><i class="fas fa-graduation-cap"></i>
-        <h3>Training</h3>
-        <p>R, SPSS, STATA, Python, SQL</p>
-      </div>
-      <div class="service-card"><i class="fas fa-bullseye"></i>
-        <h3>Business Writing</h3>
-        <p>Proposals &amp; reports</p>
-      </div>
+      <div class="service-card"><i class="fas fa-file-alt"></i><h3>Proposal Dev.</h3><p>Research &amp; business proposals</p></div>
+      <div class="service-card"><i class="fas fa-book-open"></i><h3>Dissertation</h3><p>Full academic writing support</p></div>
+      <div class="service-card"><i class="fas fa-chart-bar"></i><h3>Data Analysis</h3><p>SPSS, STATA, Python, R, SQL</p></div>
+      <div class="service-card"><i class="fas fa-tasks"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
+      <div class="service-card"><i class="fas fa-pencil-alt"></i><h3>Survey Design</h3><p>Questionnaires &amp; sampling</p></div>
+      <div class="service-card"><i class="fas fa-chart-pie"></i><h3>Visualization</h3><p>Dashboards &amp; infographics</p></div>
+      <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>R, SPSS, STATA, Python, SQL</p></div>
+      <div class="service-card"><i class="fas fa-bullseye"></i><h3>Business Writing</h3><p>Proposals &amp; reports</p></div>
     </div>
   </section>
 
-  <!-- ===== TRAINING ===== -->
+  <!-- TRAINING -->
   <section id="training">
     <h2><i class="fas fa-code"></i> Training Programs</h2>
     <div class="section-sub">For individuals &amp; organizations</div>
     <div class="card-grid">
-      <div class="training-card"><i class="fas fa-code"></i>
-        <h3>C++ / C</h3>
-        <p>Programming fundamentals</p>
-      </div>
-      <div class="training-card"><i class="fab fa-python"></i>
-        <h3>Python</h3>
-        <p>Data science &amp; automation</p>
-      </div>
-      <div class="training-card"><i class="fas fa-chart-line"></i>
-        <h3>SPSS</h3>
-        <p>Statistical analysis</p>
-      </div>
-      <div class="training-card"><i class="fas fa-chart-simple"></i>
-        <h3>STATA</h3>
-        <p>Econometrics &amp; data</p>
-      </div>
-      <div class="training-card"><i class="fas fa-dice-d6"></i>
-        <h3>R Programming</h3>
-        <p>Data visualization</p>
-      </div>
-      <div class="training-card"><i class="fas fa-database"></i>
-        <h3>SQL</h3>
-        <p>Database querying</p>
-      </div>
-      <div class="training-card"><i class="fas fa-flask"></i>
-        <h3>Research Methods</h3>
-        <p>Design &amp; methodology</p>
-      </div>
-      <div class="training-card"><i class="fas fa-clipboard-check"></i>
-        <h3>M&amp;E</h3>
-        <p>Monitoring &amp; evaluation</p>
-      </div>
+      <div class="training-card"><i class="fas fa-code"></i><h3>C++ / C</h3><p>Programming fundamentals</p></div>
+      <div class="training-card"><i class="fab fa-python"></i><h3>Python</h3><p>Data science &amp; automation</p></div>
+      <div class="training-card"><i class="fas fa-chart-line"></i><h3>SPSS</h3><p>Statistical analysis</p></div>
+      <div class="training-card"><i class="fas fa-chart-simple"></i><h3>STATA</h3><p>Econometrics &amp; data</p></div>
+      <div class="training-card"><i class="fas fa-dice-d6"></i><h3>R Programming</h3><p>Data visualization</p></div>
+      <div class="training-card"><i class="fas fa-database"></i><h3>SQL</h3><p>Database querying</p></div>
+      <div class="training-card"><i class="fas fa-flask"></i><h3>Research Methods</h3><p>Design &amp; methodology</p></div>
+      <div class="training-card"><i class="fas fa-clipboard-check"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
+  <!-- CONTACT -->
   <section id="contact">
     <h2><i class="fas fa-address-card"></i> Contact Us</h2>
     <div class="contact-row">
@@ -610,36 +555,23 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer>
     <i class="fas fa-chart-line"></i>
     © 2026 Wandex Insights Consult. All Rights Reserved.
     <i class="fas fa-chart-line"></i>
   </footer>
 
-  <!-- ============================================================ -->
-  <!-- ======================== JAVASCRIPT ========================= -->
-  <!-- ============================================================ -->
+  <!-- JAVASCRIPT -->
   <script>
-    /**
-     * Smooth scroll to the contact section
-     */
     function scrollToContact() {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
 
-    /**
-     * Handle contact form submission
-     */
     function sendMessage(event) {
       event.preventDefault();
-
       const form = document.getElementById('contactForm');
       const successMsg = document.getElementById('successMessage');
-
       const name = document.getElementById('fullName').value.trim();
       const email = document.getElementById('emailAddr').value.trim();
       const message = document.getElementById('msgContent').value.trim();
@@ -652,15 +584,10 @@
 
       successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We\'ll get back to you shortly.';
       successMsg.style.color = '#1f8b4c';
-
       form.reset();
-
-      setTimeout(() => {
-        successMsg.innerHTML = '';
-      }, 6000);
+      setTimeout(() => { successMsg.innerHTML = ''; }, 6000);
     }
 
-    // DOM ready
     document.addEventListener('DOMContentLoaded', function() {
       console.log('Wandex Insights Consult — ready.');
     });
