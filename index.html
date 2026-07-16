@@ -43,12 +43,12 @@
       display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0px;                 /* No padding */
+      padding: 0px;                 /* No extra space */
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
       line-height: 0;
-      overflow: hidden;            /* Cuts off any leftover transparent area */
+      overflow: hidden;            /* Trims any leftover transparent area */
     }
 
     .logo-area:hover {
@@ -57,12 +57,18 @@
     }
 
     .logo-img {
-      height: 200px;               /* Very large */
+      height: 180px;               /* Slightly taller */
       width: auto;
       object-fit: contain;
       display: block;
-      /* Light crop: 10% from each side – only removes pure transparent edges */
-      clip-path: inset(0% 10% 0% 10%);
+      /* 
+        Crop 30% from left and 30% from right → visible width = 40% of original.
+        This reduces the white area to roughly half of what it was with 10% crop.
+        Adjust these percentages to fine‑tune:
+          - Increase both numbers to make the white area smaller.
+          - Decrease them if the text gets clipped.
+      */
+      clip-path: inset(0% 30% 0% 30%);
       margin: 0;
     }
 
@@ -423,8 +429,8 @@
         grid-template-columns: 1fr 1fr;
       }
       .logo-img {
-        height: 160px;
-        clip-path: inset(0% 8% 0% 8%);
+        height: 150px;
+        clip-path: inset(0% 25% 0% 25%); /* Slightly less crop on smaller screens */
       }
     }
 
@@ -439,8 +445,8 @@
         padding: 0px;
       }
       .logo-img {
-        height: 130px;
-        clip-path: inset(0% 5% 0% 5%);
+        height: 120px;
+        clip-path: inset(0% 20% 0% 20%);
       }
       header {
         padding: 0.2rem 1rem;
