@@ -20,7 +20,7 @@
       line-height: 1.6;
     }
 
-    /* header / navbar - with lighter background for logo visibility */
+    /* header / navbar */
     header {
       background: linear-gradient(135deg, #0b2a4a 0%, #1a3a5a 100%);
       color: white;
@@ -46,7 +46,7 @@
       align-items: center;
       gap: 0.75rem;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0.3rem 1.2rem 0.3rem 0.8rem;
+      padding: 0.3rem 1.2rem 0.3rem 0.5rem;
       border-radius: 50px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
@@ -57,16 +57,17 @@
       transform: translateY(-1px);
     }
 
-    /* YOUR LOGO IMAGE - Displays image.png */
+    /* YOUR LOGO IMAGE - This is the code that picks your image.png */
     .logo-img {
       height: 50px;
       width: auto;
       object-fit: contain;
       display: block;
       max-width: 200px;
+      border-radius: 4px;
     }
 
-    /* Optional: If you want text next to the logo */
+    /* Optional text next to logo */
     .logo-text {
       font-size: 1.4rem;
       font-weight: 700;
@@ -466,15 +467,16 @@
 </head>
 <body>
 
-  <!-- ===== HEADER WITH YOUR LOGO IMAGE ===== -->
+  <!-- ===== HEADER WITH YOUR LOGO ===== -->
   <header>
     <div class="container">
       <div class="logo-area">
         <!-- ============================================== -->
-        <!-- YOUR LOGO - image.png from your repository     -->
+        <!-- THIS IS THE CODE THAT PICKS YOUR LOGO NAMED "image" -->
+        <!-- It looks for image.png in the same folder      -->
         <!-- ============================================== -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
-        <!-- Optional: Text next to logo (remove if not needed) -->
+        <!-- Optional: Remove the text below if you only want the logo image -->
         <div class="logo-text">Wandex<span>Insights</span></div>
       </div>
       <nav>
