@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wandex Insights Consult</title>
-  <!-- Font Awesome 5 (free icons) -->
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -20,7 +20,7 @@
       line-height: 1.6;
     }
 
-    /* ----- header / navbar ----- */
+    /* header / navbar */
     header {
       background: #0b2a4a;
       color: white;
@@ -46,19 +46,20 @@
       gap: 0.75rem;
     }
 
-    .logo-icon {
-      background: #ff9800;
-      color: #0b2a4a;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+    /* CUSTOM LOGO IMAGE STYLES */
+    .logo-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1); /* makes dark logo white - remove if your logo is already white/light */
     }
+
+    /* If your logo is already colored, remove the filter above and use: */
+    /* .logo-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    } */
 
     .logo-text {
       font-size: 1.6rem;
@@ -91,7 +92,7 @@
       color: #ffb347;
     }
 
-    /* ----- hero ----- */
+    /* hero */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
@@ -137,7 +138,7 @@
       box-shadow: 0 10px 24px rgba(255, 152, 0, 0.6);
     }
 
-    /* ----- sections common ----- */
+    /* sections */
     section {
       max-width: 1280px;
       margin: 2.5rem auto;
@@ -169,7 +170,6 @@
       margin-bottom: 2rem;
     }
 
-    /* about */
     #about p {
       font-size: 1.15rem;
       max-width: 800px;
@@ -179,7 +179,7 @@
       border-left: 8px solid #ff9800;
     }
 
-    /* services & training cards */
+    /* cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -208,6 +208,18 @@
       background: white;
     }
 
+    /* Service Image Styles - replace icons with images if desired */
+    .service-img, .training-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffd699;
+      padding: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* If using icons instead of images */
     .service-card i, .training-card i {
       font-size: 2.8rem;
       color: #0b2a4a;
@@ -373,11 +385,15 @@
 </head>
 <body>
 
-<!-- header with logo -->
+<!-- ===== HEADER WITH CUSTOM LOGO ===== -->
 <header>
   <div class="container">
     <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-chart-line"></i></div>
+      <!-- ============================================== -->
+      <!-- CUSTOM LOGO IMAGE - REPLACE 'your-logo.png'    -->
+      <!-- with your actual image filename in repository   -->
+      <!-- ============================================== -->
+      <img src="your-logo.png" alt="Wandex Insights Consult" class="logo-img" />
       <div class="logo-text">Wandex<span>Insights</span></div>
     </div>
     <nav>
@@ -389,7 +405,7 @@
   </div>
 </header>
 
-<!-- Hero -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
   <p>
@@ -401,7 +417,7 @@
   </button>
 </section>
 
-<!-- About -->
+<!-- ===== ABOUT ===== -->
 <section id="about">
   <h2><i class="fas fa-users"></i> About Us</h2>
   <p>
@@ -413,11 +429,12 @@
   </p>
 </section>
 
-<!-- Services with icons (image-inspired) -->
+<!-- ===== SERVICES ===== -->
 <section id="services">
   <h2><i class="fas fa-cogs"></i> Our Services</h2>
   <div class="section-sub">Research · Data · Consulting</div>
   <div class="card-grid">
+    <!-- Option A: Using icons (currently active) -->
     <div class="service-card"><i class="fas fa-file-alt"></i><h3>Proposal Dev.</h3><p>Research &amp; business proposals</p></div>
     <div class="service-card"><i class="fas fa-book-open"></i><h3>Dissertation</h3><p>Full academic writing support</p></div>
     <div class="service-card"><i class="fas fa-chart-bar"></i><h3>Data Analysis</h3><p>SPSS, STATA, Python, R, SQL</p></div>
@@ -426,14 +443,28 @@
     <div class="service-card"><i class="fas fa-chart-pie"></i><h3>Visualization</h3><p>Dashboards &amp; infographics</p></div>
     <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>R, SPSS, STATA, Python, SQL</p></div>
     <div class="service-card"><i class="fas fa-bullseye"></i><h3>Business Writing</h3><p>Proposals &amp; reports</p></div>
+
+    <!-- 
+      Option B: Using custom images (commented out)
+      To use images, replace the <i> tag above with <img>:
+      
+      <div class="service-card">
+        <img src="services/proposal.jpg" alt="Proposal" class="service-img" />
+        <h3>Proposal Dev.</h3>
+        <p>Research &amp; business proposals</p>
+      </div>
+      
+      Make sure the image paths are correct for your repository.
+    -->
   </div>
 </section>
 
-<!-- Training -->
+<!-- ===== TRAINING ===== -->
 <section id="training">
   <h2><i class="fas fa-code"></i> Training Programs</h2>
   <div class="section-sub">For individuals &amp; organizations</div>
   <div class="card-grid">
+    <!-- Using icons -->
     <div class="training-card"><i class="fas fa-code"></i><h3>C++ / C</h3><p>Programming fundamentals</p></div>
     <div class="training-card"><i class="fab fa-python"></i><h3>Python</h3><p>Data science &amp; automation</p></div>
     <div class="training-card"><i class="fas fa-chart-line"></i><h3>SPSS</h3><p>Statistical analysis</p></div>
@@ -442,10 +473,19 @@
     <div class="training-card"><i class="fas fa-database"></i><h3>SQL</h3><p>Database querying</p></div>
     <div class="training-card"><i class="fas fa-flask"></i><h3>Research Methods</h3><p>Design &amp; methodology</p></div>
     <div class="training-card"><i class="fas fa-clipboard-check"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
+
+    <!-- 
+      Option B: Using custom images for training:
+      <div class="training-card">
+        <img src="training/cpp.jpg" alt="C++" class="training-img" />
+        <h3>C++ / C</h3>
+        <p>Programming fundamentals</p>
+      </div>
+    -->
   </div>
 </section>
 
-<!-- Contact with improved info -->
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <h2><i class="fas fa-address-card"></i> Contact Us</h2>
   <div class="contact-row">
@@ -462,10 +502,10 @@
     </div>
 
     <div class="contact-form">
-      <form onsubmit="sendMessage(event)">
-        <input type="text" placeholder="Your Full Name" required />
-        <input type="email" placeholder="Your Email Address" required />
-        <textarea placeholder="Your Message …" required></textarea>
+      <form id="contactForm" onsubmit="sendMessage(event)">
+        <input type="text" id="fullName" placeholder="Your Full Name" required />
+        <input type="email" id="emailAddr" placeholder="Your Email Address" required />
+        <textarea id="msgContent" placeholder="Your Message …" required></textarea>
         <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
       </form>
       <p id="successMessage"></p>
@@ -473,30 +513,69 @@
   </div>
 </section>
 
-<!-- footer -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <i class="fas fa-chart-line"></i> 
   © 2026 Wandex Insights Consult. All Rights Reserved. 
   <i class="fas fa-chart-line"></i>
 </footer>
 
+<!-- ============================================================ -->
+<!-- ======================== JAVASCRIPT ========================= -->
+<!-- ============================================================ -->
 <script>
+  /**
+   * Smooth scroll to the contact section
+   */
   function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
+  /**
+   * Handle contact form submission
+   * - Prevents default page reload
+   * - Shows a success message
+   * - Resets the form fields
+   * - Auto-hides the message after 6 seconds
+   */
   function sendMessage(event) {
-    event.preventDefault();
-    const msgEl = document.getElementById('successMessage');
-    msgEl.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We’ll get back to you shortly.';
-    msgEl.style.color = '#1f8b4c';
-    // optionally reset form
-    event.target.reset();
-    // reset message after 6 sec
+    event.preventDefault(); // stop page reload
+
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMessage');
+
+    // Read values for validation
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('emailAddr').value.trim();
+    const message = document.getElementById('msgContent').value.trim();
+
+    // Basic validation
+    if (!name || !email || !message) {
+      successMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all fields.';
+      successMsg.style.color = '#c0392b';
+      return;
+    }
+
+    // Simulate sending success
+    successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We\'ll get back to you shortly.';
+    successMsg.style.color = '#1f8b4c';
+
+    // Reset the form
+    form.reset();
+
+    // Clear the success message after 6 seconds
     setTimeout(() => {
-      msgEl.innerHTML = '';
+      successMsg.innerHTML = '';
     }, 6000);
   }
+
+  // DOM ready
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Wandex Insights Consult — ready.');
+  });
 </script>
 
 </body>
