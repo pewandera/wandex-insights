@@ -44,9 +44,8 @@
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+      padding: 0.5rem 1.5rem 0.5rem 0.8rem;
       border-radius: 50px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
@@ -57,26 +56,15 @@
       transform: translateY(-1px);
     }
 
-    /* YOUR LOGO IMAGE - This is the code that picks your image.png */
+    /* YOUR LOGO IMAGE - NOW BIGGER */
     .logo-img {
-      height: 50px;
+      height: 80px;
+      /* Increased from 50px to 80px */
       width: auto;
       object-fit: contain;
       display: block;
-      max-width: 200px;
+      max-width: 300px;
       border-radius: 4px;
-    }
-
-    /* Optional text next to logo */
-    .logo-text {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #0b2a4a;
-      letter-spacing: 0.5px;
-    }
-    .logo-text span {
-      color: #e67e22;
-      font-weight: 300;
     }
 
     nav {
@@ -423,7 +411,7 @@
         gap: 0.8rem;
       }
       .logo-area {
-        padding: 0.3rem 0.8rem 0.3rem 0.5rem;
+        padding: 0.4rem 1rem 0.4rem 0.6rem;
       }
       nav {
         gap: 1rem;
@@ -439,10 +427,8 @@
         grid-template-columns: 1fr 1fr;
       }
       .logo-img {
-        height: 40px;
-      }
-      .logo-text {
-        font-size: 1.1rem;
+        height: 60px;
+        /* Slightly smaller on tablets */
       }
     }
 
@@ -454,13 +440,11 @@
         font-size: 1.7rem;
       }
       .logo-area {
-        padding: 0.2rem 0.6rem 0.2rem 0.3rem;
+        padding: 0.3rem 0.8rem 0.3rem 0.4rem;
       }
       .logo-img {
-        height: 35px;
-      }
-      .logo-text {
-        font-size: 0.9rem;
+        height: 50px;
+        /* Smaller on mobile */
       }
     }
   </style>
@@ -472,12 +456,10 @@
     <div class="container">
       <div class="logo-area">
         <!-- ============================================== -->
-        <!-- THIS IS THE CODE THAT PICKS YOUR LOGO NAMED "image" -->
-        <!-- It looks for image.png in the same folder      -->
+        <!-- YOUR LOGO - image.png from your repository     -->
         <!-- ============================================== -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
-        <!-- Optional: Remove the text below if you only want the logo image -->
-        <div class="logo-text">Wandex<span>Insights</span></div>
+        <!-- "WandexInsights" text REMOVED -->
       </div>
       <nav>
         <a href="#about">About</a>
