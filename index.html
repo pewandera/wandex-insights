@@ -20,15 +20,16 @@
       line-height: 1.6;
     }
 
-    /* header / navbar */
+    /* header / navbar - with lighter background for logo visibility */
     header {
-      background: #0b2a4a;
+      background: linear-gradient(135deg, #0b2a4a 0%, #1a3a5a 100%);
       color: white;
       padding: 0.5rem 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 3px solid #ff9800;
     }
 
     .container {
@@ -44,30 +45,38 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.3rem 1rem 0.3rem 0.5rem;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* CUSTOM LOGO IMAGE STYLES */
+    /* CUSTOM LOGO IMAGE - White background ensures visibility */
     .logo-img {
-      height: 50px;
+      height: 45px;
       width: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1); /* makes dark logo white - remove if your logo is already white/light */
+      display: block;
     }
 
-    /* If your logo is already colored, remove the filter above and use: */
-    /* .logo-img {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
-    } */
+    /* If your logo is on a white background but has transparent parts */
+    .logo-wrapper {
+      background: white;
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
 
     .logo-text {
       font-size: 1.6rem;
       font-weight: 600;
       letter-spacing: -0.5px;
+      color: #0b2a4a;
+      /* Dark text on white background */
     }
     .logo-text span {
-      color: #ffb347;
+      color: #e67e22;
       font-weight: 300;
     }
 
@@ -92,7 +101,7 @@
       color: #ffb347;
     }
 
-    /* hero */
+    /* hero - FIXED VISIBILITY */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
@@ -103,9 +112,11 @@
 
     .hero h2 {
       font-size: 2.8rem;
-      font-weight: 300;
+      font-weight: 700;
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     .hero h2 i {
       color: #ff9800;
@@ -116,7 +127,9 @@
       font-size: 1.25rem;
       max-width: 700px;
       margin: 1rem auto 1.8rem;
-      opacity: 0.9;
+      opacity: 0.95;
+      color: #f0f4fa;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .hero .btn-primary {
@@ -187,7 +200,8 @@
       margin-top: 0.5rem;
     }
 
-    .service-card, .training-card {
+    .service-card,
+    .training-card {
       background: #f8fbfe;
       padding: 1.8rem 1.2rem;
       border-radius: 20px;
@@ -201,26 +215,16 @@
       gap: 0.4rem;
     }
 
-    .service-card:hover, .training-card:hover {
+    .service-card:hover,
+    .training-card:hover {
       transform: translateY(-6px);
       border-color: #ff9800;
       box-shadow: 0 12px 28px rgba(255, 152, 0, 0.15);
       background: white;
     }
 
-    /* Service Image Styles - replace icons with images if desired */
-    .service-img, .training-img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #ffd699;
-      padding: 0.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    /* If using icons instead of images */
-    .service-card i, .training-card i {
+    .service-card i,
+    .training-card i {
       font-size: 2.8rem;
       color: #0b2a4a;
       background: #ffd699;
@@ -234,13 +238,15 @@
       margin-bottom: 0.3rem;
     }
 
-    .service-card h3, .training-card h3 {
+    .service-card h3,
+    .training-card h3 {
       font-weight: 600;
       font-size: 1.1rem;
       color: #0b2a4a;
     }
 
-    .service-card p, .training-card p {
+    .service-card p,
+    .training-card p {
       font-size: 0.9rem;
       color: #3a5a7a;
     }
@@ -355,6 +361,9 @@
         align-items: flex-start;
         gap: 0.8rem;
       }
+      .logo-area {
+        padding: 0.3rem 0.8rem 0.3rem 0.5rem;
+      }
       nav {
         gap: 1rem;
       }
@@ -380,203 +389,237 @@
       .hero h2 {
         font-size: 1.7rem;
       }
+      .logo-area {
+        padding: 0.2rem 0.6rem 0.2rem 0.3rem;
+      }
+      .logo-img {
+        height: 35px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER WITH CUSTOM LOGO ===== -->
-<header>
-  <div class="container">
-    <div class="logo-area">
-      <!-- ============================================== -->
-      <!-- CUSTOM LOGO IMAGE - REPLACE 'your-logo.png'    -->
-      <!-- with your actual image filename in repository   -->
-      <!-- ============================================== -->
-      <img src="your-logo.png" alt="Wandex Insights Consult" class="logo-img" />
-      <div class="logo-text">Wandex<span>Insights</span></div>
+  <!-- ===== HEADER WITH WHITE BACKGROUND FOR LOGO ===== -->
+  <header>
+    <div class="container">
+      <div class="logo-area">
+        <!-- ============================================== -->
+        <!-- YOUR LOGO - Just save as 'image.png', 'image.jpg', or 'image.jpeg' -->
+        <!-- The white background ensures your logo is ALWAYS visible -->
+        <!-- ============================================== -->
+        <div class="logo-wrapper">
+          <picture>
+            <!-- Try different extensions automatically -->
+            <source srcset="image.webp" type="image/webp">
+            <source srcset="image.png" type="image/png">
+            <source srcset="image.jpg" type="image/jpeg">
+            <img src="image.png" alt="Wandex Insights Consult" class="logo-img"
+            onerror="this.style.display='none'; this.parentElement.parentElement.parentElement.querySelector('.logo-fallback').style.display='flex';" />
+          </picture>
+        </div>
+        <!-- Fallback icon if logo image doesn't load -->
+        <div class="logo-fallback" style="display:none; background:#ff9800; color:#0b2a4a; width:40px; height:40px; border-radius:50%; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; box-shadow:0 2px 8px rgba(255,152,0,0.3);">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="logo-text">Wandex<span>Insights</span></div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#training">Training</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#training">Training</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
-  <p>
-    Empowering students, researchers, NGOs, and businesses through professional
-    research, statistical consulting &amp; capacity building.
-  </p>
-  <button class="btn-primary" onclick="scrollToContact()">
-    <i class="fas fa-envelope"></i> Get in Touch
-  </button>
-</section>
+  <!-- ===== HERO - FIXED VISIBILITY ===== -->
+  <section class="hero">
+    <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
+    <p>
+      Empowering students, researchers, NGOs, and businesses through professional
+      research, statistical consulting &amp; capacity building.
+    </p>
+    <button class="btn-primary" onclick="scrollToContact()">
+      <i class="fas fa-envelope"></i> Get in Touch
+    </button>
+  </section>
 
-<!-- ===== ABOUT ===== -->
-<section id="about">
-  <h2><i class="fas fa-users"></i> About Us</h2>
-  <p>
-    <i class="fas fa-quote-left" style="color:#ff9800; margin-right:8px;"></i>
-    Wandex Insights Consult provides professional services in research,
-    monitoring &amp; evaluation, statistical analysis, academic writing,
-    programming, and capacity building. We turn data into decisions with
-    expertise you can trust.
-  </p>
-</section>
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <h2><i class="fas fa-users"></i> About Us</h2>
+    <p>
+      <i class="fas fa-quote-left" style="color:#ff9800; margin-right:8px;"></i>
+      Wandex Insights Consult provides professional services in research,
+      monitoring &amp; evaluation, statistical analysis, academic writing,
+      programming, and capacity building. We turn data into decisions with
+      expertise you can trust.
+    </p>
+  </section>
 
-<!-- ===== SERVICES ===== -->
-<section id="services">
-  <h2><i class="fas fa-cogs"></i> Our Services</h2>
-  <div class="section-sub">Research · Data · Consulting</div>
-  <div class="card-grid">
-    <!-- Option A: Using icons (currently active) -->
-    <div class="service-card"><i class="fas fa-file-alt"></i><h3>Proposal Dev.</h3><p>Research &amp; business proposals</p></div>
-    <div class="service-card"><i class="fas fa-book-open"></i><h3>Dissertation</h3><p>Full academic writing support</p></div>
-    <div class="service-card"><i class="fas fa-chart-bar"></i><h3>Data Analysis</h3><p>SPSS, STATA, Python, R, SQL</p></div>
-    <div class="service-card"><i class="fas fa-tasks"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
-    <div class="service-card"><i class="fas fa-pencil-alt"></i><h3>Survey Design</h3><p>Questionnaires &amp; sampling</p></div>
-    <div class="service-card"><i class="fas fa-chart-pie"></i><h3>Visualization</h3><p>Dashboards &amp; infographics</p></div>
-    <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>R, SPSS, STATA, Python, SQL</p></div>
-    <div class="service-card"><i class="fas fa-bullseye"></i><h3>Business Writing</h3><p>Proposals &amp; reports</p></div>
-
-    <!-- 
-      Option B: Using custom images (commented out)
-      To use images, replace the <i> tag above with <img>:
-      
-      <div class="service-card">
-        <img src="services/proposal.jpg" alt="Proposal" class="service-img" />
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <h2><i class="fas fa-cogs"></i> Our Services</h2>
+    <div class="section-sub">Research · Data · Consulting</div>
+    <div class="card-grid">
+      <div class="service-card"><i class="fas fa-file-alt"></i>
         <h3>Proposal Dev.</h3>
         <p>Research &amp; business proposals</p>
       </div>
-      
-      Make sure the image paths are correct for your repository.
-    -->
-  </div>
-</section>
+      <div class="service-card"><i class="fas fa-book-open"></i>
+        <h3>Dissertation</h3>
+        <p>Full academic writing support</p>
+      </div>
+      <div class="service-card"><i class="fas fa-chart-bar"></i>
+        <h3>Data Analysis</h3>
+        <p>SPSS, STATA, Python, R, SQL</p>
+      </div>
+      <div class="service-card"><i class="fas fa-tasks"></i>
+        <h3>M&amp;E</h3>
+        <p>Monitoring &amp; evaluation</p>
+      </div>
+      <div class="service-card"><i class="fas fa-pencil-alt"></i>
+        <h3>Survey Design</h3>
+        <p>Questionnaires &amp; sampling</p>
+      </div>
+      <div class="service-card"><i class="fas fa-chart-pie"></i>
+        <h3>Visualization</h3>
+        <p>Dashboards &amp; infographics</p>
+      </div>
+      <div class="service-card"><i class="fas fa-graduation-cap"></i>
+        <h3>Training</h3>
+        <p>R, SPSS, STATA, Python, SQL</p>
+      </div>
+      <div class="service-card"><i class="fas fa-bullseye"></i>
+        <h3>Business Writing</h3>
+        <p>Proposals &amp; reports</p>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== TRAINING ===== -->
-<section id="training">
-  <h2><i class="fas fa-code"></i> Training Programs</h2>
-  <div class="section-sub">For individuals &amp; organizations</div>
-  <div class="card-grid">
-    <!-- Using icons -->
-    <div class="training-card"><i class="fas fa-code"></i><h3>C++ / C</h3><p>Programming fundamentals</p></div>
-    <div class="training-card"><i class="fab fa-python"></i><h3>Python</h3><p>Data science &amp; automation</p></div>
-    <div class="training-card"><i class="fas fa-chart-line"></i><h3>SPSS</h3><p>Statistical analysis</p></div>
-    <div class="training-card"><i class="fas fa-chart-simple"></i><h3>STATA</h3><p>Econometrics &amp; data</p></div>
-    <div class="training-card"><i class="fas fa-dice-d6"></i><h3>R Programming</h3><p>Data visualization</p></div>
-    <div class="training-card"><i class="fas fa-database"></i><h3>SQL</h3><p>Database querying</p></div>
-    <div class="training-card"><i class="fas fa-flask"></i><h3>Research Methods</h3><p>Design &amp; methodology</p></div>
-    <div class="training-card"><i class="fas fa-clipboard-check"></i><h3>M&amp;E</h3><p>Monitoring &amp; evaluation</p></div>
-
-    <!-- 
-      Option B: Using custom images for training:
-      <div class="training-card">
-        <img src="training/cpp.jpg" alt="C++" class="training-img" />
+  <!-- ===== TRAINING ===== -->
+  <section id="training">
+    <h2><i class="fas fa-code"></i> Training Programs</h2>
+    <div class="section-sub">For individuals &amp; organizations</div>
+    <div class="card-grid">
+      <div class="training-card"><i class="fas fa-code"></i>
         <h3>C++ / C</h3>
         <p>Programming fundamentals</p>
       </div>
-    -->
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact">
-  <h2><i class="fas fa-address-card"></i> Contact Us</h2>
-  <div class="contact-row">
-    <div class="contact-info">
-      <p><i class="fas fa-phone-alt"></i> +256 784 925 195</p>
-      <p><i class="fas fa-phone-alt"></i> +256 703 873 932</p>
-      <p><i class="fas fa-envelope"></i> paulwandera2016@gmail.com</p>
-      <p><i class="fas fa-envelope"></i> insights.consult@gmail.com</p>
-      <p><i class="fas fa-globe"></i> www.wandexconsult.com</p>
-      <p style="margin-top:1rem; background:#f0f4fa; padding:0.8rem 1.2rem; border-radius:40px;">
-        <i class="fas fa-badge-check" style="color:#ff9800;"></i> 
-        <strong>Professional · Dependable · Results-driven</strong>
-      </p>
+      <div class="training-card"><i class="fab fa-python"></i>
+        <h3>Python</h3>
+        <p>Data science &amp; automation</p>
+      </div>
+      <div class="training-card"><i class="fas fa-chart-line"></i>
+        <h3>SPSS</h3>
+        <p>Statistical analysis</p>
+      </div>
+      <div class="training-card"><i class="fas fa-chart-simple"></i>
+        <h3>STATA</h3>
+        <p>Econometrics &amp; data</p>
+      </div>
+      <div class="training-card"><i class="fas fa-dice-d6"></i>
+        <h3>R Programming</h3>
+        <p>Data visualization</p>
+      </div>
+      <div class="training-card"><i class="fas fa-database"></i>
+        <h3>SQL</h3>
+        <p>Database querying</p>
+      </div>
+      <div class="training-card"><i class="fas fa-flask"></i>
+        <h3>Research Methods</h3>
+        <p>Design &amp; methodology</p>
+      </div>
+      <div class="training-card"><i class="fas fa-clipboard-check"></i>
+        <h3>M&amp;E</h3>
+        <p>Monitoring &amp; evaluation</p>
+      </div>
     </div>
+  </section>
 
-    <div class="contact-form">
-      <form id="contactForm" onsubmit="sendMessage(event)">
-        <input type="text" id="fullName" placeholder="Your Full Name" required />
-        <input type="email" id="emailAddr" placeholder="Your Email Address" required />
-        <textarea id="msgContent" placeholder="Your Message …" required></textarea>
-        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </form>
-      <p id="successMessage"></p>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2><i class="fas fa-address-card"></i> Contact Us</h2>
+    <div class="contact-row">
+      <div class="contact-info">
+        <p><i class="fas fa-phone-alt"></i> +256 784 925 195</p>
+        <p><i class="fas fa-phone-alt"></i> +256 703 873 932</p>
+        <p><i class="fas fa-envelope"></i> paulwandera2016@gmail.com</p>
+        <p><i class="fas fa-envelope"></i> insights.consult@gmail.com</p>
+        <p><i class="fas fa-globe"></i> www.wandexconsult.com</p>
+        <p style="margin-top:1rem; background:#f0f4fa; padding:0.8rem 1.2rem; border-radius:40px;">
+          <i class="fas fa-badge-check" style="color:#ff9800;"></i>
+          <strong>Professional · Dependable · Results-driven</strong>
+        </p>
+      </div>
+
+      <div class="contact-form">
+        <form id="contactForm" onsubmit="sendMessage(event)">
+          <input type="text" id="fullName" placeholder="Your Full Name" required />
+          <input type="email" id="emailAddr" placeholder="Your Email Address" required />
+          <textarea id="msgContent" placeholder="Your Message …" required></textarea>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+        <p id="successMessage"></p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <i class="fas fa-chart-line"></i> 
-  © 2026 Wandex Insights Consult. All Rights Reserved. 
-  <i class="fas fa-chart-line"></i>
-</footer>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <i class="fas fa-chart-line"></i>
+    © 2026 Wandex Insights Consult. All Rights Reserved.
+    <i class="fas fa-chart-line"></i>
+  </footer>
 
-<!-- ============================================================ -->
-<!-- ======================== JAVASCRIPT ========================= -->
-<!-- ============================================================ -->
-<script>
-  /**
-   * Smooth scroll to the contact section
-   */
-  function scrollToContact() {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  /**
-   * Handle contact form submission
-   * - Prevents default page reload
-   * - Shows a success message
-   * - Resets the form fields
-   * - Auto-hides the message after 6 seconds
-   */
-  function sendMessage(event) {
-    event.preventDefault(); // stop page reload
-
-    const form = document.getElementById('contactForm');
-    const successMsg = document.getElementById('successMessage');
-
-    // Read values for validation
-    const name = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('emailAddr').value.trim();
-    const message = document.getElementById('msgContent').value.trim();
-
-    // Basic validation
-    if (!name || !email || !message) {
-      successMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all fields.';
-      successMsg.style.color = '#c0392b';
-      return;
+  <!-- ============================================================ -->
+  <!-- ======================== JAVASCRIPT ========================= -->
+  <!-- ============================================================ -->
+  <script>
+    /**
+     * Smooth scroll to the contact section
+     */
+    function scrollToContact() {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
-    // Simulate sending success
-    successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We\'ll get back to you shortly.';
-    successMsg.style.color = '#1f8b4c';
+    /**
+     * Handle contact form submission
+     */
+    function sendMessage(event) {
+      event.preventDefault();
 
-    // Reset the form
-    form.reset();
+      const form = document.getElementById('contactForm');
+      const successMsg = document.getElementById('successMessage');
 
-    // Clear the success message after 6 seconds
-    setTimeout(() => {
-      successMsg.innerHTML = '';
-    }, 6000);
-  }
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('emailAddr').value.trim();
+      const message = document.getElementById('msgContent').value.trim();
 
-  // DOM ready
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('Wandex Insights Consult — ready.');
-  });
-</script>
+      if (!name || !email || !message) {
+        successMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all fields.';
+        successMsg.style.color = '#c0392b';
+        return;
+      }
+
+      successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been received. We\'ll get back to you shortly.';
+      successMsg.style.color = '#1f8b4c';
+
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.innerHTML = '';
+      }, 6000);
+    }
+
+    // DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Wandex Insights Consult — ready.');
+    });
+  </script>
 
 </body>
 </html>
