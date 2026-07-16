@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wandex Insights Consult</title>
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -39,16 +40,17 @@
       flex-wrap: wrap;
     }
 
-    /* LOGO AREA - white background with TIGHT padding */
+    /* LOGO AREA - NO PADDING, HIDDEN OVERFLOW */
     .logo-area {
       display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0px 4px 0px 4px;   /* Almost no padding */
+      padding: 0px;                 /* Removed all padding */
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
       line-height: 0;
+      overflow: hidden;            /* Prevents anything from spilling out */
     }
 
     .logo-area:hover {
@@ -56,19 +58,22 @@
       transform: translateY(-1px);
     }
 
-    /* LOGO IMAGE - CROPPED to remove empty space */
+    /* LOGO IMAGE - AGGRESSIVELY CROPPED */
     .logo-img {
-      height: 120px;          /* Adjust as needed */
+      height: 120px;                /* Adjust height as needed */
       width: auto;
       object-fit: contain;
       display: block;
-      /* CROP the empty space around the logo */
-      clip-path: inset(0% 30% 0% 30%);
-      /* 30% from left and right - adjust these percentages */
-      margin: 0;              /* No extra margin */
+      /* 
+        INCREASED CROP MAGNITUDE: 
+        Changed from 30% to 40% to remove more empty space.
+        Adjust the 40% value up (e.g., 45%) to crop more,
+        or down (e.g., 30%) to crop less.
+      */
+      clip-path: inset(0% 40% 0% 40%); 
+      margin: 0;
     }
 
-    /* Navigation */
     nav {
       display: flex;
       gap: 1.8rem;
@@ -105,7 +110,6 @@
       color: #ffb347;
     }
 
-    /* Hero section */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
@@ -174,7 +178,6 @@
       box-shadow: 0 10px 24px rgba(255, 152, 0, 0.6);
     }
 
-    /* Sections */
     section {
       max-width: 1280px;
       margin: 2.5rem auto;
@@ -225,7 +228,6 @@
       box-shadow: 0 4px 12px rgba(255, 152, 0, 0.1);
     }
 
-    /* Cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -292,7 +294,6 @@
       color: #3a5a7a;
     }
 
-    /* Contact */
     #contact .contact-row {
       display: flex;
       flex-wrap: wrap;
@@ -404,7 +405,6 @@
       margin: 0 0.3rem;
     }
 
-    /* Responsive */
     @media (max-width: 720px) {
       header .container {
         flex-direction: column;
@@ -412,7 +412,7 @@
         gap: 0.8rem;
       }
       .logo-area {
-        padding: 0px 3px;
+        padding: 0px;
       }
       nav {
         gap: 1rem;
@@ -429,7 +429,7 @@
       }
       .logo-img {
         height: 90px;
-        clip-path: inset(0% 25% 0% 25%);
+        clip-path: inset(0% 35% 0% 35%); /* Slightly less crop on tablets */
       }
     }
 
@@ -441,11 +441,11 @@
         font-size: 1.7rem;
       }
       .logo-area {
-        padding: 0px 2px;
+        padding: 0px;
       }
       .logo-img {
         height: 70px;
-        clip-path: inset(0% 20% 0% 20%);
+        clip-path: inset(0% 30% 0% 30%); /* Even less crop on mobile */
       }
       header {
         padding: 0.2rem 1rem;
@@ -454,12 +454,10 @@
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="logo-area">
-        <!-- YOUR LOGO IMAGE - cropped to remove empty space -->
+        <!-- YOUR LOGO - Cropped aggressively to remove empty space -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
       </div>
       <nav>
@@ -471,7 +469,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
     <p>
@@ -483,7 +480,6 @@
     </button>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2><i class="fas fa-users"></i> About Us</h2>
     <p>
@@ -495,7 +491,6 @@
     </p>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <h2><i class="fas fa-cogs"></i> Our Services</h2>
     <div class="section-sub">Research · Data · Consulting</div>
@@ -511,7 +506,6 @@
     </div>
   </section>
 
-  <!-- TRAINING -->
   <section id="training">
     <h2><i class="fas fa-code"></i> Training Programs</h2>
     <div class="section-sub">For individuals &amp; organizations</div>
@@ -527,7 +521,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <h2><i class="fas fa-address-card"></i> Contact Us</h2>
     <div class="contact-row">
@@ -555,14 +548,12 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <i class="fas fa-chart-line"></i>
     © 2026 Wandex Insights Consult. All Rights Reserved.
     <i class="fas fa-chart-line"></i>
   </footer>
 
-  <!-- JAVASCRIPT -->
   <script>
     function scrollToContact() {
       document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
@@ -592,6 +583,5 @@
       console.log('Wandex Insights Consult — ready.');
     });
   </script>
-
 </body>
 </html>
