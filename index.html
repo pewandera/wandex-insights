@@ -39,16 +39,16 @@
       flex-wrap: wrap;
     }
 
-    /* LOGO AREA – NO PADDING, TIGHT FIT */
     .logo-area {
       display: inline-flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0px;                  /* No extra space */
+      padding: 0px;                 /* No padding */
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
       line-height: 0;
+      overflow: hidden;            /* Cuts off any leftover transparent area */
     }
 
     .logo-area:hover {
@@ -56,17 +56,13 @@
       transform: translateY(-1px);
     }
 
-    /* LOGO IMAGE – LARGE AND LIGHTLY CROPPED */
     .logo-img {
-      height: 160px;                /* Much larger – fills the white space */
+      height: 200px;               /* Very large */
       width: auto;
       object-fit: contain;
       display: block;
-      /* 
-        Light crop: only 20% from left/right – this removes transparent edges
-        WITHOUT touching the actual text.
-      */
-      clip-path: inset(0% 20% 0% 20%);
+      /* Light crop: 10% from each side – only removes pure transparent edges */
+      clip-path: inset(0% 10% 0% 10%);
       margin: 0;
     }
 
@@ -106,7 +102,7 @@
       color: #ffb347;
     }
 
-    /* Hero section – unchanged */
+    /* Hero – unchanged */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
@@ -427,8 +423,8 @@
         grid-template-columns: 1fr 1fr;
       }
       .logo-img {
-        height: 130px;
-        clip-path: inset(0% 15% 0% 15%);
+        height: 160px;
+        clip-path: inset(0% 8% 0% 8%);
       }
     }
 
@@ -443,8 +439,8 @@
         padding: 0px;
       }
       .logo-img {
-        height: 100px;
-        clip-path: inset(0% 10% 0% 10%);
+        height: 130px;
+        clip-path: inset(0% 5% 0% 5%);
       }
       header {
         padding: 0.2rem 1rem;
@@ -456,7 +452,6 @@
   <header>
     <div class="container">
       <div class="logo-area">
-        <!-- YOUR LOGO - now larger and only lightly cropped -->
         <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
       </div>
       <nav>
