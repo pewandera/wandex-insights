@@ -46,26 +46,32 @@
       align-items: center;
       gap: 0.75rem;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0.3rem 1rem 0.3rem 0.5rem;
+      padding: 0.3rem 1.2rem 0.3rem 0.8rem;
       border-radius: 50px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
-    /* CUSTOM LOGO IMAGE - White background ensures visibility */
+    .logo-area:hover {
+      box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* YOUR LOGO IMAGE - Displays image.png */
     .logo-img {
-      height: 45px;
+      height: 50px;
       width: auto;
       object-fit: contain;
       display: block;
-      max-width: 150px;
+      max-width: 200px;
     }
 
+    /* Optional: If you want text next to the logo */
     .logo-text {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: #0b2a4a;
-      /* Dark text on white background */
+      letter-spacing: 0.5px;
     }
     .logo-text span {
       color: #e67e22;
@@ -83,23 +89,51 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 1rem;
-      transition: 0.2s;
+      transition: 0.3s ease;
       border-bottom: 2px solid transparent;
       padding-bottom: 4px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ff9800;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a:hover {
-      border-bottom-color: #ff9800;
       color: #ffb347;
     }
 
-    /* hero - FIXED VISIBILITY */
+    /* hero */
     .hero {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6e 100%);
       color: white;
       padding: 4rem 2rem;
       text-align: center;
       border-bottom: 6px solid #ff9800;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255, 152, 0, 0.05) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero h2 {
@@ -109,6 +143,8 @@
       margin-bottom: 0.5rem;
       color: #ffffff;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
     }
     .hero h2 i {
       color: #ff9800;
@@ -122,6 +158,8 @@
       opacity: 0.95;
       color: #f0f4fa;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
     }
 
     .hero .btn-primary {
@@ -134,7 +172,9 @@
       border-radius: 50px;
       cursor: pointer;
       box-shadow: 0 8px 18px rgba(255, 152, 0, 0.4);
-      transition: 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .hero .btn-primary:hover {
@@ -151,7 +191,11 @@
       background: white;
       border-radius: 24px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      transition: 0.3s;
+      transition: all 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
@@ -182,6 +226,12 @@
       padding: 1.5rem 2rem;
       border-radius: 20px;
       border-left: 8px solid #ff9800;
+      transition: all 0.3s ease;
+    }
+
+    #about p:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(255, 152, 0, 0.1);
     }
 
     /* cards */
@@ -199,7 +249,7 @@
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      transition: 0.25s ease;
+      transition: all 0.3s ease;
       border: 1px solid #e9edf4;
       display: flex;
       flex-direction: column;
@@ -209,9 +259,9 @@
 
     .service-card:hover,
     .training-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px) scale(1.01);
       border-color: #ff9800;
-      box-shadow: 0 12px 28px rgba(255, 152, 0, 0.15);
+      box-shadow: 0 16px 32px rgba(255, 152, 0, 0.15);
       background: white;
     }
 
@@ -228,6 +278,14 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 0.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover i,
+    .training-card:hover i {
+      background: #ff9800;
+      color: white;
+      transform: rotate(5deg) scale(1.05);
     }
 
     .service-card h3,
@@ -261,6 +319,14 @@
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 10px;
+    }
+
+    .contact-info p:hover {
+      background: #f7faff;
+      transform: translateX(5px);
     }
 
     .contact-info i {
@@ -286,7 +352,7 @@
       border-radius: 40px;
       font-size: 1rem;
       background: #fafcff;
-      transition: 0.2s;
+      transition: all 0.3s ease;
     }
 
     .contact-form input:focus,
@@ -294,6 +360,7 @@
       border-color: #ff9800;
       outline: none;
       box-shadow: 0 0 0 4px rgba(255, 152, 0, 0.15);
+      transform: scale(1.01);
     }
 
     .contact-form textarea {
@@ -311,7 +378,7 @@
       font-weight: 600;
       border-radius: 40px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: all 0.3s ease;
       align-self: flex-start;
       display: flex;
       align-items: center;
@@ -322,6 +389,7 @@
       background: #ff9800;
       color: #0b2a4a;
       box-shadow: 0 8px 18px rgba(255, 152, 0, 0.3);
+      transform: scale(1.02);
     }
 
     #successMessage {
@@ -369,14 +437,17 @@
       .card-grid {
         grid-template-columns: 1fr 1fr;
       }
+      .logo-img {
+        height: 40px;
+      }
+      .logo-text {
+        font-size: 1.1rem;
+      }
     }
 
     @media (max-width: 480px) {
       .card-grid {
         grid-template-columns: 1fr;
-      }
-      .logo-text {
-        font-size: 1.2rem;
       }
       .hero h2 {
         font-size: 1.7rem;
@@ -387,30 +458,23 @@
       .logo-img {
         height: 35px;
       }
+      .logo-text {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER WITH WHITE BACKGROUND FOR LOGO ===== -->
+  <!-- ===== HEADER WITH YOUR LOGO IMAGE ===== -->
   <header>
     <div class="container">
       <div class="logo-area">
         <!-- ============================================== -->
-        <!-- YOUR LOGO - Just save as 'image' with any extension -->
-        <!-- The code will try multiple extensions automatically -->
+        <!-- YOUR LOGO - image.png from your repository     -->
         <!-- ============================================== -->
-        <img src="image" alt="Wandex Insights Consult" class="logo-img"
-        onerror="this.onerror=null; this.src='image.png';"
-        onerror="this.onerror=null; this.src='image.jpg';"
-        onerror="this.onerror=null; this.src='image.jpeg';"
-        onerror="this.onerror=null; this.src='image.webp';"
-        onerror="this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='flex';" />
-
-        <!-- Fallback icon if logo image doesn't load -->
-        <div class="logo-fallback" style="display:none; background:#ff9800; color:#0b2a4a; width:40px; height:40px; border-radius:50%; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; box-shadow:0 2px 8px rgba(255,152,0,0.3);">
-          <i class="fas fa-chart-line"></i>
-        </div>
+        <img src="image.png" alt="Wandex Insights Consult" class="logo-img" />
+        <!-- Optional: Text next to logo (remove if not needed) -->
         <div class="logo-text">Wandex<span>Insights</span></div>
       </div>
       <nav>
@@ -422,7 +486,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO - FIXED VISIBILITY ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <h2><i class="fas fa-database"></i> Research · Data · Training <i class="fas fa-laptop-code"></i></h2>
     <p>
@@ -536,7 +600,7 @@
         <p><i class="fas fa-envelope"></i> paulwandera2016@gmail.com</p>
         <p><i class="fas fa-envelope"></i> insights.consult@gmail.com</p>
         <p><i class="fas fa-globe"></i> www.wandexconsult.com</p>
-        <p style="margin-top:1rem; background:#f0f4fa; padding:0.8rem 1.2rem; border-radius:40px;">
+        <p style="margin-top:1rem; background:#f0f4fa; padding:0.8rem 1.2rem; border-radius:40px; transition:all 0.3s ease;">
           <i class="fas fa-badge-check" style="color:#ff9800;"></i>
           <strong>Professional · Dependable · Results-driven</strong>
         </p>
@@ -607,36 +671,6 @@
     // DOM ready
     document.addEventListener('DOMContentLoaded', function() {
       console.log('Wandex Insights Consult — ready.');
-      
-      // Try to load the logo with different extensions
-      const logoImg = document.querySelector('.logo-img');
-      if (logoImg) {
-        const extensions = ['', '.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
-        let currentSrc = logoImg.src;
-        
-        // If the current src doesn't load, try extensions
-        logoImg.onerror = function() {
-          let currentSrc = this.src;
-          // Try adding extensions
-          if (!currentSrc.includes('.')) {
-            const extensions = ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
-            for (let ext of extensions) {
-              this.src = currentSrc + ext;
-              // If this works, break the loop
-              this.onerror = function() {
-                // Continue to next extension
-              };
-            }
-          } else {
-            // If it has an extension but still fails, show fallback
-            this.style.display = 'none';
-            const fallback = this.parentElement.querySelector('.logo-fallback');
-            if (fallback) {
-              fallback.style.display = 'flex';
-            }
-          }
-        };
-      }
     });
   </script>
 
