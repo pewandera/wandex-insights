@@ -302,6 +302,147 @@
       color: #3a5a7a;
     }
 
+    /* ===== NEW: Mission & Vision Section ===== */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .mv-card {
+      background: #f8fbfe;
+      padding: 2rem 1.8rem;
+      border-radius: 20px;
+      border-left: 6px solid #ff9800;
+      transition: all 0.3s ease;
+    }
+
+    .mv-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(255, 152, 0, 0.12);
+    }
+
+    .mv-card h3 {
+      font-size: 1.4rem;
+      color: #0b2a4a;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mv-card h3 i {
+      color: #ff9800;
+      font-size: 1.6rem;
+    }
+
+    .mv-card p {
+      color: #3a5a7a;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ===== NEW: Core Values Section ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .value-card {
+      background: #f8fbfe;
+      padding: 1.8rem 1.2rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #e9edf4;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff9800;
+      box-shadow: 0 12px 28px rgba(255, 152, 0, 0.12);
+      background: white;
+    }
+
+    .value-card i {
+      font-size: 2.4rem;
+      color: #ff9800;
+      background: #ffd699;
+      padding: 0.7rem;
+      border-radius: 50%;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.8rem auto;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover i {
+      background: #ff9800;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .value-card h4 {
+      font-size: 1.1rem;
+      color: #0b2a4a;
+      margin-bottom: 0.3rem;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
+      color: #3a5a7a;
+    }
+
+    /* ===== NEW: Impact Section ===== */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .impact-card {
+      background: linear-gradient(145deg, #0b2a4a 0%, #1a3a5a 100%);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border-bottom: 4px solid #ff9800;
+    }
+
+    .impact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(11, 42, 74, 0.25);
+    }
+
+    .impact-card .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ff9800;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .impact-card .stat-label {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
+
+    .impact-card .stat-desc {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 0.5rem;
+    }
+
     /* contact */
     #contact .contact-row {
       display: flex;
@@ -444,6 +585,15 @@
       .logo-text {
         font-size: 1.1rem;
       }
+      .mv-grid {
+        grid-template-columns: 1fr;
+      }
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 480px) {
@@ -461,6 +611,12 @@
       }
       .logo-text {
         font-size: 0.9rem;
+      }
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -498,6 +654,105 @@
     <button class="btn-primary" onclick="scrollToContact()">
       <i class="fas fa-envelope"></i> Get in Touch
     </button>
+  </section>
+
+  <!-- ===== MISSION & VISION ===== -->
+  <section id="mission-vision">
+    <h2><i class="fas fa-bullseye"></i> Mission &amp; Vision</h2>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <h3><i class="fas fa-rocket"></i> Our Mission</h3>
+        <p>
+          To empower individuals, organizations, and communities by transforming
+          complex data into actionable insights through professional research,
+          statistical analysis, and capacity building.
+        </p>
+      </div>
+      <div class="mv-card">
+        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+        <p>
+          To be Africa's most trusted partner in data-driven decision-making,
+          fostering a culture of evidence-based research and innovation across
+          all sectors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CORE VALUES ===== -->
+  <section id="values">
+    <h2><i class="fas fa-gem"></i> Core Values</h2>
+    <div class="section-sub">The principles that guide everything we do</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-medal"></i>
+        <h4>Excellence</h4>
+        <p>Delivering high-quality, error-free work that meets the highest professional standards.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-shield-alt"></i>
+        <h4>Integrity</h4>
+        <p>Upholding honesty, transparency, and ethical practices in all our research and analysis.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-users"></i>
+        <h4>Client-Centric</h4>
+        <p>Prioritizing our clients' needs with personalized solutions and timely support.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-lightbulb"></i>
+        <h4>Innovation</h4>
+        <p>Embracing new tools, technologies, and methodologies to stay ahead in data science.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h4>Empowerment</h4>
+        <p>Building capacity through training, enabling clients to become self-sufficient in data analysis.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-globe-africa"></i>
+        <h4>Impact</h4>
+        <p>Measuring success by the positive changes our insights bring to businesses, communities, and policies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR IMPACT ===== -->
+  <section id="impact">
+    <h2><i class="fas fa-chart-line"></i> Our Impact</h2>
+    <div class="section-sub">Making a difference through data, one project at a time</div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <span class="stat-number">500+</span>
+        <div class="stat-label">Research Projects</div>
+        <div class="stat-desc">Completed across academic, NGO, and corporate sectors</div>
+      </div>
+      <div class="impact-card">
+        <span class="stat-number">1,200+</span>
+        <div class="stat-label">Clients Served</div>
+        <div class="stat-desc">Students, researchers, businesses, and organizations</div>
+      </div>
+      <div class="impact-card">
+        <span class="stat-number">85+</span>
+        <div class="stat-label">Training Workshops</div>
+        <div class="stat-desc">Delivered in programming, data analysis, and research methods</div>
+      </div>
+      <div class="impact-card">
+        <span class="stat-number">98%</span>
+        <div class="stat-label">Client Satisfaction</div>
+        <div class="stat-desc">Based on feedback from our trusted clients</div>
+      </div>
+      <div class="impact-card">
+        <span class="stat-number">15+</span>
+        <div class="stat-label">Countries Reached</div>
+        <div class="stat-desc">Across Africa and beyond with our consulting services</div>
+      </div>
+      <div class="impact-card">
+        <span class="stat-number">200+</span>
+        <div class="stat-label">Data Dashboards</div>
+        <div class="stat-desc">Developed for actionable decision-making</div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
